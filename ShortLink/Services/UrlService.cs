@@ -5,9 +5,22 @@ namespace ShortLink.Services
     public class UrlService
     {
         static List<UrlAddress> Urls { get; }
-        static UrlService() 
+        static List<User> Users { get; }
+        static UrlService()
         {
-            Urls = new List<UrlAddress>();
+            Users = new List<User> {
+                new User { Id = 1, UserName = "Zahra" }
+            };
+            Urls = new List<UrlAddress>
+            {
+                new UrlAddress { Id = 1, ShortCode = "zz",
+                    Url = "www.google.com", Owner = Users[0]
+                },
+                new UrlAddress { Id = 2, ShortCode = "gg",
+                    Url = "www.bankgisoo.ir", Owner = Users[0]
+                },
+                
+            };
         }
         public static List<UrlAddress> GetUrls() => Urls;
         public static UrlAddress? GetUrlById(int id) 
