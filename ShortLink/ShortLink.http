@@ -1,6 +1,11 @@
 @ShortLink_HostAddress = http://localhost:5180
 
-GET {{ShortLink_HostAddress}}/weatherforecast/
+GET {{ShortLink_HostAddress}}/api/Base
+Accept: application/json
+
+###
+
+GET {{ShortLink_HostAddress}}/api/Base/zz
 Accept: application/json
 
 ###

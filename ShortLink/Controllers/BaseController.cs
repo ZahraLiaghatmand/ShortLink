@@ -15,7 +15,13 @@ namespace ShortLink.Controllers
 
         [HttpGet]
         public ActionResult<List<UrlAddress>> GetAll() => UrlService.GetUrls();
-        
 
+        [HttpGet("{ShortCode}")]
+        public ActionResult<UrlAddress> GetByShortCode(string ShortCode)
+        {
+            var url = UrlService.GetUrlByShortCode(ShortCode);
+            if (url == null) { return NotFound(); }
+            return url;
+        }
     }
 }
