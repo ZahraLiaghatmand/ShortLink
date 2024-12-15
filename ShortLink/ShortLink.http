@@ -5,7 +5,7 @@ Accept: application/json
 
 ###
 
-GET {{ShortLink_HostAddress}}/api/Base/dd
+GET {{ShortLink_HostAddress}}/api/Base/gg
 Accept: application/json
 
 ###

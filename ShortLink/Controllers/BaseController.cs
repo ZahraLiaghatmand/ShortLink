@@ -23,5 +23,12 @@ namespace ShortLink.Controllers
             if (url == null) { return NotFound(); }
             return url;
         }
+
+        [HttpPost]
+        public IActionResult AddUrl(UrlAddress url)
+        {
+            UrlService.AddUrl(url);
+            return CreatedAtAction(nameof(GetByShortCode),new {shortCode = url.ShortCode }, url);
+        }
     }
 }
