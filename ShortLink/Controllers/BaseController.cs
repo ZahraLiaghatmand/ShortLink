@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ShortLink.Models;
 using ShortLink.Services;
+using System;
 
 namespace ShortLink.Controllers
 {
@@ -29,6 +30,16 @@ namespace ShortLink.Controllers
         {
             UrlService.AddUrl(url);
             return CreatedAtAction(nameof(GetByShortCode),new {shortCode = url.ShortCode }, url);
+        }
+
+        [HttpPut]
+        public IActionResult UpdateByUrl(string shortCode,UrlAddress url)
+        {
+            var ExistingUrl = UrlService.GetUrlByShortCode(shortCode);
+            if (ExistingUrl == null)
+                return NotFound();
+            UrlService.updateUrl(ExistingUrl);
+            return CreatedAtAction(nameof(GetByShortCode), new { shortCode = url.ShortCode }, url);
         }
     }
 }

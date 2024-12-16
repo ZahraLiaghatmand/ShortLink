@@ -38,10 +38,10 @@ namespace ShortLink.Services
         }
         public static void updateUrl(UrlAddress url)
         {
-            UrlAddress? urlU = GetUrlById(url.Id);
-            if (urlU != null)
+            UrlAddress? ExistingUrl = GetUrlById(url.Id);
+            if (ExistingUrl != null)
             {
-                urlU = url;
+                ExistingUrl = url;
             }
         }
     }
