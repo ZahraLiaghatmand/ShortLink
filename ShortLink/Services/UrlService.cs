@@ -28,20 +28,20 @@ namespace ShortLink.Services
         public static UrlAddress? GetUrlByShortCode(string shortCode)
             => Urls.FirstOrDefault(u => u.ShortCode == shortCode);
         public static void AddUrl(UrlAddress url) => Urls.Add(url);
-        public static void deleteUrlByUrl(int id) 
+        public static void DeleteUrlByUrl(UrlAddress url) 
         { 
-            UrlAddress? urlD = GetUrlById(id);
-            if (urlD != null)
+            UrlAddress? deletedUrl = GetUrlById(url.Id);
+            if (deletedUrl != null)
             {
-                Urls.Remove(urlD);
+                Urls.Remove(deletedUrl);
             }
         }
-        public static void updateUrl(UrlAddress url)
+        public static void UpdateUrl(string shortCode, UrlAddress url)
         {
-            UrlAddress? ExistingUrl = GetUrlById(url.Id);
-            if (ExistingUrl != null)
+            var index = Urls.FindIndex(u => u.Id == url.Id);
+            if (index != -1)
             {
-                ExistingUrl = url;
+                Urls[index] = url;
             }
         }
     }

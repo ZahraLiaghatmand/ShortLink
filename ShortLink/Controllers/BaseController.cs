@@ -29,17 +29,24 @@ namespace ShortLink.Controllers
         public IActionResult AddUrl(UrlAddress url)
         {
             UrlService.AddUrl(url);
-            return CreatedAtAction(nameof(GetByShortCode),new {shortCode = url.ShortCode }, url);
+            return CreatedAtAction(nameof(GetByShortCode),new {shortCode = url.ShortCode });
         }
 
         [HttpPut]
-        public IActionResult UpdateByUrl(string shortCode,UrlAddress url)
+        public ActionResult<UrlAddress> UpdateByShortCode(string shortCode,UrlAddress url)
+        {
+            UrlService.UpdateUrl(shortCode, url);
+            return GetByShortCode(url.ShortCode);
+        }
+
+        [HttpDelete]
+        public ActionResult<List<UrlAddress>> DeleteByUrl(string shortCode) 
         {
             var ExistingUrl = UrlService.GetUrlByShortCode(shortCode);
-            if (ExistingUrl == null)
+            if(ExistingUrl == null)
                 return NotFound();
-            UrlService.updateUrl(ExistingUrl);
-            return CreatedAtAction(nameof(GetByShortCode), new { shortCode = url.ShortCode }, url);
+            UrlService.DeleteUrlByUrl(ExistingUrl);
+            return GetAll();
         }
     }
 }
