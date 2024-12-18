@@ -1,4 +1,5 @@
-﻿using ShortLink.Models;
+﻿using Microsoft.AspNetCore.Authentication;
+using ShortLink.Models;
 
 namespace ShortLink.Services
 {
@@ -6,6 +7,8 @@ namespace ShortLink.Services
     {
         static List<UrlAddress> Urls { get; }
         static List<User> Users { get; }
+        static readonly Random random = new Random();
+        static readonly string baseUrl = "http://short.ly";
         static UrlService()
         {
             Users = new List<User> {
@@ -22,12 +25,36 @@ namespace ShortLink.Services
                 
             };
         }
+        public static string GenerateShortCode()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            char[] code = new char[6];
+            for (int i = 0; i < code.Length; i++)
+            {
+                code[i] = chars[random.Next(chars.Length)];
+            }
+            return new string(code);
+        }
+        public static string GenerateShortUrl(string url)
+        {
+            string shortCode = string.Empty;
+            shortCode = GenerateShortCode();
+            string shortUrl = baseUrl + shortCode;
+            return shortUrl;
+        }
         public static List<UrlAddress> GetUrls() => Urls;
         public static UrlAddress? GetUrlById(int id) 
             => Urls.FirstOrDefault(u => u.Id == id );
         public static UrlAddress? GetUrlByShortCode(string shortCode)
             => Urls.FirstOrDefault(u => u.ShortCode == shortCode);
-        public static void AddUrl(UrlAddress url) => Urls.Add(url);
+        public static int AddUrl(string url)
+        {
+            UrlAddress newUrlAddress = new() { Url = url };
+            string shortCode = GenerateShortCode();
+            newUrlAddress.ShortCode = shortCode;
+            Urls.Add(newUrlAddress);
+            return newUrlAddress.Id;
+        }
         public static void DeleteUrlByUrl(UrlAddress url) 
         { 
             UrlAddress? deletedUrl = GetUrlById(url.Id);

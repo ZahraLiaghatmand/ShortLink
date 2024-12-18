@@ -26,10 +26,9 @@ namespace ShortLink.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddUrl(UrlAddress url)
+        public ActionResult<UrlAddress> AddUrl(string url)
         {
-            UrlService.AddUrl(url);
-            return CreatedAtAction(nameof(GetByShortCode),new {shortCode = url.ShortCode });
+            return UrlService.GetUrlById(UrlService.AddUrl(url));
         }
 
         [HttpPut]
