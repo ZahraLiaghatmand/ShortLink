@@ -6,9 +6,9 @@ namespace ShortLink.src.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BaseController : Controller
+    public class LinkController : Controller
     {
-        public BaseController()
+        public LinkController()
         {
         }
 
