@@ -13,10 +13,10 @@ namespace ShortLink.Presentation.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<UrlAddress>> GetAll() => UrlService.GetUrls();
+        public ActionResult<List<Link>> GetAll() => UrlService.GetUrls();
 
         [HttpGet("{ShortCode}")]
-        public ActionResult<UrlAddress> GetByShortCode(string ShortCode)
+        public ActionResult<Link> GetByShortCode(string ShortCode)
         {
             var url = UrlService.GetUrlByShortCode(ShortCode);
             if (url == null) { return NotFound(); }
@@ -24,20 +24,20 @@ namespace ShortLink.Presentation.Controllers
         }
 
         [HttpPost]
-        public ActionResult<UrlAddress> AddUrl(string url)
+        public ActionResult<Link> AddUrl(string url)
         {
             return UrlService.GetUrlById(UrlService.AddUrl(url));
         }
 
         [HttpPut]
-        public ActionResult<UrlAddress> UpdateByShortCode(string shortCode,UrlAddress url)
+        public ActionResult<Link> UpdateByShortCode(string shortCode,Link url)
         {
             UrlService.UpdateUrl(shortCode, url);
             return GetByShortCode(url.ShortCode);
         }
 
         [HttpDelete]
-        public ActionResult<List<UrlAddress>> DeleteByUrl(string shortCode) 
+        public ActionResult<List<Link>> DeleteByUrl(string shortCode) 
         {
             var ExistingUrl = UrlService.GetUrlByShortCode(shortCode);
             if(ExistingUrl == null)
