@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ShortLink.Models;
-using ShortLink.Services;
+using ShortLink.Domain.Entities;
+using ShortLink.Application.Services;
 using System;
 
-namespace ShortLink.Controllers
+namespace ShortLink.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using ShortLink.Models;
+﻿using ShortLink.Entities;
 
 namespace ShortLink.Services
 {

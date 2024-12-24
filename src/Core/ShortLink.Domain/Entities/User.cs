@@ -1,4 +1,4 @@
-﻿namespace ShortLink.Models
+﻿namespace ShortLink.Entities
 {
     public class User
     {
