@@ -4,7 +4,7 @@ namespace ShortLink.Application.Services
 {
     public class UrlService
     {
-        static List<UrlAddress> Urls { get; }
+        static List<Link> Urls { get; }
         static List<User> Users { get; }
         static readonly Random random = new Random();
         static readonly string baseUrl = "http://short.ly";
@@ -13,12 +13,12 @@ namespace ShortLink.Application.Services
             Users = new List<User> {
                 new User { Id = 1, UserName = "Zahra" }
             };
-            Urls = new List<UrlAddress>
+            Urls = new List<Link>
             {
-                new UrlAddress { Id = 1, ShortCode = "zz",
+                new Link { Id = 1, ShortCode = "zz",
                     Url = "www.google.com", Owner = Users[0]
                 },
-                new UrlAddress { Id = 2, ShortCode = "gg",
+                new Link { Id = 2, ShortCode = "gg",
                     Url = "www.bankgisoo.ir", Owner = Users[0]
                 },
                 
@@ -41,28 +41,28 @@ namespace ShortLink.Application.Services
             string shortUrl = baseUrl + shortCode;
             return shortUrl;
         }
-        public static List<UrlAddress> GetUrls() => Urls;
-        public static UrlAddress? GetUrlById(int id) 
+        public static List<Link> GetUrls() => Urls;
+        public static Link? GetUrlById(int id) 
             => Urls.FirstOrDefault(u => u.Id == id );
-        public static UrlAddress? GetUrlByShortCode(string shortCode)
+        public static Link? GetUrlByShortCode(string shortCode)
             => Urls.FirstOrDefault(u => u.ShortCode == shortCode);
         public static int AddUrl(string url)
         {
-            UrlAddress newUrlAddress = new() { Url = url };
+            Link newUrlAddress = new() { Url = url };
             string shortCode = GenerateShortCode();
             newUrlAddress.ShortCode = shortCode;
             Urls.Add(newUrlAddress);
             return newUrlAddress.Id;
         }
-        public static void DeleteUrlByUrl(UrlAddress url) 
+        public static void DeleteUrlByUrl(Link url) 
         { 
-            UrlAddress? deletedUrl = GetUrlById(url.Id);
+            Link? deletedUrl = GetUrlById(url.Id);
             if (deletedUrl != null)
             {
                 Urls.Remove(deletedUrl);
             }
         }
-        public static void UpdateUrl(string shortCode, UrlAddress url)
+        public static void UpdateUrl(string shortCode, Link url)
         {
             var index = Urls.FindIndex(u => u.Id == url.Id);
             if (index != -1)
