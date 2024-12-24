@@ -1,4 +1,4 @@
-﻿namespace ShortLink.Entities
+﻿namespace ShortLink.Domain.Entities
 {
     public class UrlAddress
     {

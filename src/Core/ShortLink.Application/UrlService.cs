@@ -1,6 +1,6 @@
-﻿using ShortLink.Entities;
+﻿using ShortLink.Domain.Entities;
 
-namespace ShortLink.Services
+namespace ShortLink.Application.Services
 {
     public class UrlService
     {

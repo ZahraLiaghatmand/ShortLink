@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ShortLink.Domain.Entities;
 using ShortLink.Application.Services;
-using System;
 
 namespace ShortLink.Presentation.Controllers
 {
