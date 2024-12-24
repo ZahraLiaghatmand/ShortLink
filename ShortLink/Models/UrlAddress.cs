@@ -1,4 +1,4 @@
-﻿namespace ShortLink.src.Models
+﻿namespace ShortLink.Models
 {
     public class UrlAddress
     {

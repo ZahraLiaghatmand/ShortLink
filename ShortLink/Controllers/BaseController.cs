@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ShortLink.src.Models;
-using ShortLink.src.Services;
+using ShortLink.Models;
+using ShortLink.Services;
 using System;
 
-namespace ShortLink.src.Controllers
+namespace ShortLink.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController : ControllerBase
     {
-        public BaseController()
+       public BaseController() 
         {
         }
 
@@ -32,17 +32,17 @@ namespace ShortLink.src.Controllers
         }
 
         [HttpPut]
-        public ActionResult<UrlAddress> UpdateByShortCode(string shortCode, UrlAddress url)
+        public ActionResult<UrlAddress> UpdateByShortCode(string shortCode,UrlAddress url)
         {
             UrlService.UpdateUrl(shortCode, url);
             return GetByShortCode(url.ShortCode);
         }
 
         [HttpDelete]
-        public ActionResult<List<UrlAddress>> DeleteByUrl(string shortCode)
+        public ActionResult<List<UrlAddress>> DeleteByUrl(string shortCode) 
         {
             var ExistingUrl = UrlService.GetUrlByShortCode(shortCode);
-            if (ExistingUrl == null)
+            if(ExistingUrl == null)
                 return NotFound();
             UrlService.DeleteUrlByUrl(ExistingUrl);
             return GetAll();

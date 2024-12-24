@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
-using ShortLink.src.Models;
+using ShortLink.Models;
 
-namespace ShortLink.src.Services
+namespace ShortLink.Services
 {
     public class UrlService
     {
@@ -22,7 +22,7 @@ namespace ShortLink.src.Services
                 new UrlAddress { Id = 2, ShortCode = "gg",
                     Url = "www.bankgisoo.ir", Owner = Users[0]
                 },
-
+                
             };
         }
         public static string GenerateShortCode()
@@ -43,8 +43,8 @@ namespace ShortLink.src.Services
             return shortUrl;
         }
         public static List<UrlAddress> GetUrls() => Urls;
-        public static UrlAddress? GetUrlById(int id)
-            => Urls.FirstOrDefault(u => u.Id == id);
+        public static UrlAddress? GetUrlById(int id) 
+            => Urls.FirstOrDefault(u => u.Id == id );
         public static UrlAddress? GetUrlByShortCode(string shortCode)
             => Urls.FirstOrDefault(u => u.ShortCode == shortCode);
         public static int AddUrl(string url)
@@ -55,8 +55,8 @@ namespace ShortLink.src.Services
             Urls.Add(newUrlAddress);
             return newUrlAddress.Id;
         }
-        public static void DeleteUrlByUrl(UrlAddress url)
-        {
+        public static void DeleteUrlByUrl(UrlAddress url) 
+        { 
             UrlAddress? deletedUrl = GetUrlById(url.Id);
             if (deletedUrl != null)
             {
