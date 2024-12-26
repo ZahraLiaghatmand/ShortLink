@@ -7,13 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0919F37B-9A5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{623D510E-F510-4FA8-A29F-1BAAD581E6DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLink.Application", "src\Core\ShortLink.Application\ShortLink.Application.csproj", "{CD6C640D-4130-449C-90D4-DD94FD6699E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortLink.Application", "src\Core\ShortLink.Application\ShortLink.Application.csproj", "{CD6C640D-4130-449C-90D4-DD94FD6699E9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortLink.Domain", "src\Core\ShortLink.Domain\ShortLink.Domain.csproj", "{EEF7C332-B9E7-4227-994C-5A7622047E33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLink.Presentation", "src\ShortLink.Presentation\ShortLink.Presentation.csproj", "{8280F321-AF67-4929-9016-FF7771F9A52B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortLink.Presentation", "src\ShortLink.Presentation\ShortLink.Presentation.csproj", "{8280F321-AF67-4929-9016-FF7771F9A52B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLink.Infrastructure.Persistence", "src\ShortLink.Infrastructure.Persistence\ShortLink.Infrastructure.Persistence.csproj", "{293C391E-72D3-49D6-B5E7-13591EA3155F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortLink.Infrastructure.Persistence", "src\ShortLink.Infrastructure.Persistence\ShortLink.Infrastructure.Persistence.csproj", "{293C391E-72D3-49D6-B5E7-13591EA3155F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BA054851-1515-42E6-AE68-19D9AEB2A316}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
