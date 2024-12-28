@@ -9,7 +9,7 @@ namespace ShortLink.Application
         private IApplicationDbContext _dbContext = dbContext;
         public IEnumerable<Link> GetAll()
         {
-            return _dbContext.links.ToList();
+            return _dbContext.links.Include(link => link.Owner).ToList();
         }
     }
 }
