@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShortLink.Application.Common.Interfaces;
 using ShortLink.Application.UseCases.Links.Queries.GetAll;
-using ShortLink.Domain.Entities;
 
 using MediatR;
 namespace ShortLink.Presentation.Controllers
