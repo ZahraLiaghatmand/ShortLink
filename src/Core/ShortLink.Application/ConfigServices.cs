@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace ShortLink.Application
 {
@@ -6,7 +7,7 @@ namespace ShortLink.Application
     {
         public static IServiceCollection RegisterApplicationServices(this IServiceCollection services)
         {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Startup).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             return services;
         }
     }
