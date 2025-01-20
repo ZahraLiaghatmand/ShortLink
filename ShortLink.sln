@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortLink.Infrastructure.Pe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BA054851-1515-42E6-AE68-19D9AEB2A316}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortLink.Shared", "src\ShortLink.Shared\ShortLink.Shared.csproj", "{1B21A941-4E7A-4667-A309-254AA8A5D2FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{293C391E-72D3-49D6-B5E7-13591EA3155F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293C391E-72D3-49D6-B5E7-13591EA3155F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{293C391E-72D3-49D6-B5E7-13591EA3155F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B21A941-4E7A-4667-A309-254AA8A5D2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B21A941-4E7A-4667-A309-254AA8A5D2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B21A941-4E7A-4667-A309-254AA8A5D2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B21A941-4E7A-4667-A309-254AA8A5D2FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{EEF7C332-B9E7-4227-994C-5A7622047E33} = {623D510E-F510-4FA8-A29F-1BAAD581E6DB}
 		{8280F321-AF67-4929-9016-FF7771F9A52B} = {0919F37B-9A50-439A-A5D8-BD6B820AE743}
 		{293C391E-72D3-49D6-B5E7-13591EA3155F} = {0919F37B-9A50-439A-A5D8-BD6B820AE743}
+		{1B21A941-4E7A-4667-A309-254AA8A5D2FD} = {0919F37B-9A50-439A-A5D8-BD6B820AE743}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0F5948C6-C99E-45C0-8B10-5855F516611C}
