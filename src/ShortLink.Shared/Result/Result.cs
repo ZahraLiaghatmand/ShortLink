@@ -7,11 +7,11 @@ namespace ShortLink.Shared
         private readonly T? _value = default;
         private readonly List<Error>? _errors = [];
         private bool HasErrors => _errors.Count > 0;
-        public Result(T value)
+        private Result(T value)
         {
             _value = value;           
         }
-        public Result(Error error)
+        private Result(Error error)
         {
             _errors.Add(error);
             _errors = [];
