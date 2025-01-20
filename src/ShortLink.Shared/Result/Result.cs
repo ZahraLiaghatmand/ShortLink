@@ -9,12 +9,12 @@ namespace ShortLink.Shared
         private bool HasErrors => _errors.Count > 0;
         private Result(T value)
         {
-            _value = value;           
+            _value = value;
+            _errors = [];
         }
         private Result(Error error)
         {
             _errors.Add(error);
-            _errors = [];
         }
         public T Value { 
             get
