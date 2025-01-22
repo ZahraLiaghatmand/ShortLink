@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\ShortLink.Application\ShortLink.Application.csproj" />
     <ProjectReference Include="..\ShortLink.Infrastructure.Persistence\ShortLink.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\ShortLink.Shared\ShortLink.Shared.csproj" />
   </ItemGroup>
 
 </Project>

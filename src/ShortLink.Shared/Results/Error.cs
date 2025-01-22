@@ -1,18 +1,28 @@
 ﻿namespace ShortLink.Shared.Result
 {
+    /// <summary>
+    /// It offers static factory methods to create common types of errors: 
+    ///     (NotFound, Exception, Validation) 
+    /// and uses ErrorType to define the nature of the error.
+    /// The Error constructor is private to enforce the use of static factory methods, 
+    ///  which is good for controlled instantiation.
+    /// </summary>
     public readonly record struct Error
     {
-        private readonly string _message { get; }
-        private readonly string _description { get; }
-        private readonly ErrorType _type { get; }
+        public string Message { get; }
+        public string Description { get; }
+        public ErrorType Type { get; }
+
+        public static Error None = new(ErrorType.None, string.Empty, string.Empty);
         private Error(ErrorType type, string message, string description)
         {
-            _type = type;
-            _message = message;
-            _description = description;
+            Type = type;
+            Message = message;
+            Description = description;
         }
-        public static Error None(string message, string description)
-            => new Error(ErrorType.None, message, description);
+
+        public static implicit operator Result(Error error) => Result.Failure(error);
+
         public static Error Failure(string message, string description)
             => new Error(ErrorType.Failure, message, description);
         public static Error Validation(string message, string description)

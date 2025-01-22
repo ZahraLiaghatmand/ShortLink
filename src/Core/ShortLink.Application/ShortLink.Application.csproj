@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ShortLink.Shared\ShortLink.Shared.csproj" />
     <ProjectReference Include="..\ShortLink.Domain\ShortLink.Domain.csproj" />
   </ItemGroup>
 
