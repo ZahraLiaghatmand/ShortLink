@@ -1,20 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShortLink.Application.Common.Interfaces;
-using ShortLink.Domain.Entities;
+using ShortLink.Application.UseCases.Links.Queries.GetAll;
 
+using MediatR;
 namespace ShortLink.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LinkController : Controller
+    public class LinkController(ISender sender) : BaseController(sender)
     {
-        private ILinkServices _linkService;
-        public LinkController(ILinkServices linkService) => _linkService = linkService;
-
         [HttpGet]
-        public IEnumerable<Link> GetAllLinks() 
-        {
-            return _linkService.GetAll();
-        }
+        public async Task<IActionResult> GetAllLinksAsync([FromQuery]GetAllLinksQuery getAllLinksQuery,
+            CancellationToken cancellationToken = default) 
+            => OK(await MediatR.Send(getAllLinksQuery, cancellationToken));
     }
 }
