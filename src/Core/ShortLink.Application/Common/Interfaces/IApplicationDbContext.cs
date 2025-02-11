@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShortLink.Domain.Entities;
+using ShortLink.Shared.Result;
 
 namespace ShortLink.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {
-        DbSet<Link> links { get; set; }
-        DbSet<User> users { get; set; }
-        public int SaveChanges();
+        DbSet<Link> Links { get; }
+        DbSet<User> Users { get; }
+        Task<Result> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

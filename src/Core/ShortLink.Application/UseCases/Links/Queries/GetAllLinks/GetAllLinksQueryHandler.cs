@@ -14,7 +14,7 @@ namespace ShortLink.Application.UseCases.Links.Queries.GetAllLinks
 
         public async Task<Result<IEnumerable<LinksDto>>> Handle(GetAllLinksQuery request, CancellationToken cancellationToken)
         {
-            IEnumerable<LinksDto> result = await _dbContext.links.Select(link => new LinksDto
+            IEnumerable<LinksDto> result = await _dbContext.Links.Select(link => new LinksDto
             {
                 Id = link.Id,
                 Owner = link.Owner,
